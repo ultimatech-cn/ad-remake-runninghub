@@ -1,0 +1,66 @@
+{
+  "source": "folgers-reference.mp4",
+  "container_duration_s": 14.48,
+  "scene_threshold": 0.3,
+  "candidate_cuts_s": [
+    1.134467,
+    7.774433
+  ],
+  "audio_stream_detected": false,
+  "intervals": [
+    {
+      "start_s": 0.0,
+      "end_s": 1.134467,
+      "samples": [
+        {
+          "seek_s": 0.1702,
+          "file": "01-early.jpg"
+        },
+        {
+          "seek_s": 0.5672,
+          "file": "01-mid.jpg"
+        },
+        {
+          "seek_s": 0.9643,
+          "file": "01-late.jpg"
+        }
+      ]
+    },
+    {
+      "start_s": 1.134467,
+      "end_s": 7.774433,
+      "samples": [
+        {
+          "seek_s": 2.1305,
+          "file": "02-early.jpg"
+        },
+        {
+          "seek_s": 4.4544,
+          "file": "02-mid.jpg"
+        },
+        {
+          "seek_s": 6.7784,
+          "file": "02-late.jpg"
+        }
+      ]
+    },
+    {
+      "start_s": 7.774433,
+      "end_s": 14.48,
+      "samples": [
+        {
+          "seek_s": 8.7803,
+          "file": "03-early.jpg"
+        },
+        {
+          "seek_s": 11.1272,
+          "file": "03-mid.jpg"
+        },
+        {
+          "seek_s": 13.4742,
+          "file": "03-late.jpg"
+        }
+      ]
+    }
+  ]
+}
