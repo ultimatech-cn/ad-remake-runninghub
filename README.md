@@ -88,16 +88,6 @@ python3 scripts/probe_video.py /path/to/reference.mp4 /path/to/new-evidence-fold
 
 输出候选切点、每区间前/中/后三帧及`evidence.json`。输出目录必须是新目录；音轨标记只表示流存在，不代表已转写或听取。
 
-## 验证与限制
-
-- 历史记录：2026-11-13，广告Skill v0.2.0，新会话产出方案；APP流程有可下载结果。
-- 本次发布重新运行抽帧脚本和格式检查，不提交任何收费任务。验证记录见[发布检查](VERIFICATION.md)。
-- 历史成片：15.10秒、496×864、24fps、H.264/AAC，运行06:03。
-- 当时积分前后差额约921.663，不是本次发布费用，也不是当前报价；未取得逐任务账单，不当作最终结算凭证。
-- 稀疏帧不能证明连续运动或音画同步；不捏造未听取音轨的对白和节拍。
-- 不生成缺少依据的促销、销量、产地、口味或认证承诺。
-- 独立同事的运营复核仍待完成，不将Codex的新会话测试称为真人同事验收。
-
 ## 与 rh-video-replica 的区别
 
 [镜作 rh-video-replica](https://github.com/ultimatech-cn/rh-video-replica)侧重脚本化API任务管理和确定性后期；本Skill聚焦**特定RunningHub广告APP的策划/取证/两字段交接/验收**。二者不共享同一实测结论。
