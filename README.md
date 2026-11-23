@@ -8,6 +8,8 @@
 
 > 定位：策划、取证、APP交接与验收。它不是自带生成模型，也不包含自动提交 RunningHub 的 API 客户端。云端生成由指定 APP 执行，Agent 可在已授权且有工具支持时操作网页。
 
+![广告创意重构工作台流程](overview.svg)
+
 **[下载 Skill 安装包](https://github.com/ultimatech-cn/ad-remake-runninghub/releases/latest)** · [Skill 指令](SKILL.md) · [演示案例与测试结果](EXAMPLE.md) · [取证/交接规范](references/handoff.md)
 
 ## 能做什么
