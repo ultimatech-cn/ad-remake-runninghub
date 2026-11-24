@@ -1,53 +1,55 @@
-# 广告创意重构工作台
+**English** | [简体中文](README.zh-CN.md)
 
-### 不从空白脚本开始：把参考广告的结构，变成你的商品创意。
+# Ad Creative Reconstruction Studio
 
-**ad-remake-runninghub** 连接参考拆解、商品识别、创意分镜和成片验收，让运营拿到的不只是一段提示词，而是一份能检查输入、能交给同事、能定位问题的制作方案。
+### Turn a reference ad into a creative plan for your own product.
 
-这个 Skill 面向有本地参考广告、商品图和已核实卖点的运营任务：分析镜头与节奏，建立商品外观核对点，写新片分镜，交接真实应用字段，并对实际成片进行验收。
+**ad-remake-runninghub** connects reference analysis, product recognition, storyboarding, and output review. Give your team more than a prompt: deliver a production plan with traceable inputs, clear handoffs, and actionable feedback.
 
-> 定位：策划、取证、APP交接与验收。它不是自带生成模型，也不包含自动提交 RunningHub 的 API 客户端。云端生成由指定 APP 执行，Agent 可在已授权且有工具支持时操作网页。
+Built for operators with a local reference ad, product images, and verified selling points, this Skill helps an agent analyze pacing, define product appearance checkpoints, write a new storyboard, map real application fields, and review the resulting video.
 
-![广告创意重构工作台流程](overview.svg)
+> This is a planning, evidence, application handoff, and review Skill. It does not include a video model or an API client for automatic RunningHub submission. The selected application generates the video; an agent can operate its website when authorized and equipped to do so.
 
-**[下载 Skill 安装包](https://github.com/ultimatech-cn/ad-remake-runninghub/releases/latest)** · [Skill 指令](SKILL.md) · [演示案例与测试结果](EXAMPLE.md) · [取证/交接规范](references/handoff.md)
+![Ad creative reconstruction workflow; Chinese diagram](overview.svg)
 
-## 能做什么
+**[Download the Skill](https://github.com/ultimatech-cn/ad-remake-runninghub/releases/latest)** · [Agent instructions · 中文](SKILL.md) · [Detailed case · 中文](EXAMPLE.md) · [Handoff specification · 中文](references/handoff.md)
 
-| 输入 | Skill 的工作 | 交付物 |
+## What it does
+
+| Your input | What the Skill helps the agent do | Deliverable |
 |---|---|---|
-| 参考广告本地视频或时间戳帧 | 分析候选切点、镜头内运动、商品露出和结尾 | 带时间依据的参考拆解 |
-| 目标商品图片 | 提取轮廓、颜色、标识、部件等3–5个核对点 | 商品一致性清单 |
-| 已确认卖点与投放要求 | 决定保留/替换的结构，改写约15秒分镜 | 新广告方案与后期文字建议 |
-| RunningHub当前页面 | 核对实有字段、输入文件、费用和缩略图 | 两字段交接表与执行记录 |
-| 实际输出视频 | 按时间点检查商品、文字、构图、动作与声音 | 通过/待改/待测及修复建议 |
+| Local reference ad or timestamped frames | Analyze candidate cuts, movement, product exposure, and ending | Reference breakdown with time evidence |
+| Target product images | Identify 3–5 checks for silhouette, color, marks, and components | Product consistency checklist |
+| Verified selling points and campaign requirements | Decide which structural elements to retain or replace; write an approximately 15-second storyboard | New ad plan and suggested post-production copy |
+| Current RunningHub page | Check available fields, files, fees, and thumbnails | Two-field handoff and execution record |
+| Actual output video | Review product, typography, framing, movement, and sound by timestamp | Pass / revise / not tested findings and repair suggestions |
 
-脚本只辅助抽取候选切点和证据帧；Agent负责视觉解释与方案。火焰、快动作或渐变会造成误报/漏报，不能把机器候选点直接称为人工确认镜头。
+The helper script extracts candidate cuts and evidence frames. The agent interprets them and develops the creative plan. Flames, rapid motion, and dissolves can cause false positives or missed cuts; candidates still need visual review.
 
-## 对接哪个应用
+## Connected application
 
-[RunningHub：参考广告智能重构](https://www.runninghub.cn/ai-detail/2108035405940613122)
+[RunningHub: Reference Ad Reconstruction](https://www.runninghub.cn/ai-detail/2108035405940613122)
 
-历史核验日期为 **2026-11-13**，页面接收：
+The historical page check on **November 13, 2026** identified two inputs:
 
-1. **参考广告视频**：真实视频文件，帧图只供分析。
-2. **商品图片**：目标商品完整图片，提交前必须检查预览确为本次文件。
+1. **Reference ad video:** an actual video file; frames are for analysis only.
+2. **Product image:** the complete target image; verify its upload preview before submission.
 
-该页面没有普通分镜/提示词输入框。分镜文本用于沟通和验收，不能把它粘贴到不存在的字段。只有用户另外提供含文本字段的工作流，才映射相应提示词。约15秒竖屏是该应用的历史策划基准，实际字段、尺寸、费用与服务可用性运行时再核对。
+This page has no general storyboard or prompt field. Storyboards support communication and review; map text to a generation field only when a supplied workflow actually provides one. Approximately 15 seconds in portrait format is a historical planning baseline. Recheck live fields, dimensions, fees, and availability before running.
 
-## 示例：Folgers参考结构 → Lavazza策划，实际香水图输入
+## Example: Folgers structure → Lavazza plan, with a separate perfume run
 
-[详细案例](EXAMPLE.md)区分了两个不同结果：
+The [detailed case · 中文](EXAMPLE.md) distinguishes the planning example from the actual application output:
 
-- **策划示例**：分析约14.48秒参考片，识别约1.13秒与7.77秒候选切点，按“人物/购物情境 → 超市空间 → 商品收尾”改写Lavazza红银软袋方案。
-- **真实APP生成**：历史测试提交时，商品栏实际保留了香水图片。APP生成了15.10秒香水广告，流程可运行，但**不能据此宣称Lavazza咖啡复刻成功**。
-- **错误处理**：将问题归为上传素材核对失误，不能归因于应用误换商品。未追加生成，保留当时记录。
+- **Planning example:** analyze a roughly 14.48-second reference, identify candidate cuts near 1.13 and 7.77 seconds, and adapt “person/shopping context → supermarket space → product ending” for a red-and-silver Lavazza pouch.
+- **Actual application run:** the product field still contained a perfume image when the historical task was submitted. The application produced a 15.10-second perfume ad. This demonstrates a working generation path, **not a successful Lavazza recreation**.
+- **Diagnosis:** the wrong upload was not caught during input verification. The record does not attribute it to the application changing the product. No additional generation was submitted.
 
-本仓库用文字方案和结构化示例演示这项能力，不重新分发原广告、Lavazza商品照或来源不完整的香水输入图/成片。案例原文件保留在原交付中。
+The repository demonstrates this workflow through a written plan and structured evidence example. It does not redistribute the original ad, Lavazza product photograph, or perfume input/output with incomplete provenance. Those historical files remain in the original delivery.
 
-## 安装与调用
+## Install and invoke
 
-从 Release 下载ZIP，解压后应为：
+Download the release ZIP. Its extracted Skill directory contains:
 
 ```text
 ad-remake-runninghub/
@@ -56,42 +58,44 @@ ad-remake-runninghub/
   scripts/probe_video.py
 ```
 
-| 宿主 | 安装位置/入口 | 验证状态 |
+| Host | Installation location or entry point | Recorded status |
 |---|---|---|
-| Codex | `~/.codex/skills/ad-remake-runninghub/` | 原记录有显式调用的新会话方案测试 |
-| DeepSeek Harness | 项目 `.dsh/skills/ad-remake-runninghub/` | 目录适配方式，未做目标会话触发实测 |
-| WorkBuddy | 技能管理中的上传技能入口 | 未做客户端导入触发实测，以客户端当前入口为准 |
+| Codex | `~/.codex/skills/ad-remake-runninghub/` | Historical fresh-session explicit invocation produced a plan |
+| DeepSeek Harness | Project `.dsh/skills/ad-remake-runninghub/` | Directory adaptation provided; target-session triggering not tested |
+| WorkBuddy | Upload Skill in the client's skill manager | Client import/triggering not tested; check the current client UI |
 
-宿主需要读取本地视频/图片；要用脚本则需Python 3.10+和FFmpeg。纯聊天环境不能执行媒体取证或操作APP。
+The host needs local image/video access. The helper script requires Python 3.10+ and FFmpeg. A text-only chat environment cannot perform media evidence extraction or operate the application. The agent instructions and detailed operator documents are currently in Chinese; the prompt below requests an English delivery.
 
 ```text
-使用 ad-remake-runninghub。
-参考：/absolute/path/reference.mp4
-商品：/absolute/path/product.jpg
-目标：约15秒竖屏广告。
-卖点只用我提供的事实。
-请输出参考时间证据、商品一致性清单、新片分镜和APP字段交接。
-如果没有实际成片，验收项标为待测；不要把方案当作已生成结果。
+Use ad-remake-runninghub. Reply and deliver the plan in English.
+Reference: /absolute/path/reference.mp4
+Product: /absolute/path/product.jpg
+Goal: an approximately 15-second portrait ad.
+Use only the product facts I provide.
+Deliver timestamped reference evidence, a product consistency checklist,
+a new storyboard, and a handoff mapped to the actual application fields.
+If there is no actual output video, mark output review as not tested;
+do not present a plan as a generated result.
 ```
 
-## 本地取证脚本
+## Local evidence helper
 
-脚本仅用Python标准库；FFmpeg需自行安装。
+The script uses the Python standard library. Install FFmpeg separately.
 
 ```bash
 python3 scripts/probe_video.py /path/to/reference.mp4 /path/to/new-evidence-folder
 
-# 可指定现有FFmpeg二进制和阈值
+# Optional FFmpeg path and cut threshold
 python3 scripts/probe_video.py /path/to/reference.mp4 /path/to/new-evidence-folder \
   --ffmpeg /path/to/ffmpeg --threshold 0.30
 ```
 
-输出候选切点、每区间前/中/后三帧及`evidence.json`。输出目录必须是新目录；音轨标记只表示流存在，不代表已转写或听取。
+It outputs candidate cuts, three frames per interval (early/middle/late), and `evidence.json`. The output directory must be new. An audio-stream flag only confirms a stream exists; it does not mean the audio has been heard or transcribed.
 
-## 与 rh-video-replica 的区别
+## How it differs from rh-video-replica
 
-[镜作 rh-video-replica](https://github.com/ultimatech-cn/rh-video-replica)侧重脚本化API任务管理和确定性后期；本Skill聚焦**特定RunningHub广告APP的策划/取证/两字段交接/验收**。二者不共享同一实测结论。
+[RH Video Replica](https://github.com/ultimatech-cn/rh-video-replica) focuses on scripted API task management and deterministic post-production. This Skill focuses on **planning, evidence, the two-field handoff, and review for a specific RunningHub advertising application**. Their test results are separate.
 
-## 许可与素材
+## License and media
 
-原创代码与文档采用[MIT许可证](LICENSE)。第三方广告/商品名称仅用于案例说明，不代表关联或背书。参考作品来源见[案例](EXAMPLE.md)，仓库不授予第三方素材商业使用许可。
+Original code and documentation use the [MIT License](LICENSE). Third-party advertising and product names identify the case only and imply no affiliation or endorsement. Reference provenance appears in the [case · 中文](EXAMPLE.md); this repository does not grant commercial rights to third-party media.
